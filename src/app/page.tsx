@@ -45,7 +45,7 @@ export default function HomePage() {
 
             {/* Description */}
             <p className="text-gray-600 max-w-lg leading-relaxed text-xl font-medium">
-              Pearl Thoughts is the architecture of modern medicine. We merge <span className="text-primary font-bold">Neural Triage</span> with automated registration to eliminate clinician burnout.
+              MediAI Hub is the architecture of modern medicine. We merge <span className="text-primary font-bold">Neural Triage</span> with automated registration to eliminate clinician burnout.
             </p>
 
             {/* CTA Buttons */}
@@ -147,7 +147,7 @@ export default function HomePage() {
                 <span className="text-primary italic">At Scale.</span>
               </h2>
               <p className="text-gray-600 text-xl leading-relaxed font-medium max-w-xl">
-                Pearl Thoughts isn&apos;t just a management system; it&apos;s a cognitive layer for your hospital. We empower clinicians to focus on care while our AI handles the orchestration of data and urgency.
+                MediAI Hub isn&apos;t just a management system; it&apos;s a cognitive layer for your hospital. We empower clinicians to focus on care while our AI handles the orchestration of data and urgency.
               </p>
             </div>
 
@@ -308,7 +308,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-gray-400 text-xl font-medium max-w-2xl mx-auto relative z-10 leading-relaxed">
-            Deployment takes less than 48 hours for standard clinical environments. Secure your spot in the Pearl Thoughts network today.
+            Deployment takes less than 48 hours for standard clinical environments. Secure your spot in the MediAI Hub network today.
           </p>
 
           <div className="flex flex-wrap justify-center gap-6 relative z-10 pt-4">

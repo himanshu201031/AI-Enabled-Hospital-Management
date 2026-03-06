@@ -41,7 +41,7 @@ export default function ClinicianPage() {
         <div>
           <div className="flex items-center gap-2 text-primary font-bold text-sm tracking-wider uppercase mb-2">
             <Zap className="w-4 h-4" />
-            Pearl Thoughts • Clinical Intelligence
+            MediAI Hub • Clinical Intelligence
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 flex items-center gap-3">
             Physician Command Hub

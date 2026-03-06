@@ -4,9 +4,10 @@ import { CheckCircle2, AlertCircle, Info, AlertTriangle } from 'lucide-react';
 interface AlertProps {
   children: ReactNode;
   type?: 'success' | 'error' | 'warning' | 'info';
+  className?: string;
 }
 
-export default function Alert({ children, type = 'info' }: AlertProps) {
+export default function Alert({ children, type = 'info', className = '' }: AlertProps) {
   const styles = {
     success: {
       bg: 'bg-success/10 text-success-800 border-success/20',
@@ -27,7 +28,7 @@ export default function Alert({ children, type = 'info' }: AlertProps) {
   }[type];
 
   return (
-    <div className={`p-4 rounded-xl border flex items-start gap-3 ${styles.bg}`}>
+    <div className={`p-4 rounded-xl border flex items-start gap-3 ${styles.bg} ${className}`}>
       {styles.icon}
       <div className="text-sm font-medium">{children}</div>
     </div>

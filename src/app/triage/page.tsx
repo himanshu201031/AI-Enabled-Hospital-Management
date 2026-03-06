@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { AlertTriangle, CheckCircle2, FileText, HeartPulse, Brain, Zap, Shield, Sparkles } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, FileText, HeartPulse, Brain, Zap, Shield, Sparkles, Activity } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Alert from '../../components/ui/Alert';
@@ -58,20 +58,20 @@ export default function TriagePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50 pb-20">
+    <div className="min-h-screen bg-gray-50/50 pb-20 font-sans">
       <FadeIn className="max-w-5xl mx-auto px-4 pt-12 space-y-12">
         {/* Header Section */}
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-2xl border border-primary/20 text-primary font-black text-xs uppercase tracking-[0.2em] mb-4">
             <Sparkles className="w-4 h-4" />
-            Pearl Neural Engine v4.2
+            MediAI Core v4.2
           </div>
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 leading-tight">
-            Next-Gen <br />
+            High-Fidelity <br />
             <span className="text-primary italic">Clinical Assessment.</span>
           </h1>
           <p className="text-gray-500 text-lg font-medium leading-relaxed">
-            Our proprietary <span className="text-gray-900 font-bold">NeuralTriage™</span> algorithm uses semi-supervised learning to provide rapid, high-confidence assessments for clinicians in real-time.
+            Our proprietary <span className="text-gray-900 font-bold">MediAI Triage™</span> algorithm uses advanced neural orchestration to provide high-precision assessments for modern healthcare providers.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export default function TriagePage() {
                   <textarea
                     {...register('symptoms')}
                     rows={6}
-                    placeholder="Describe clinical presentation... (e.g., 'Patient presents with sharp substernal chest pain radiating to the left arm...')"
+                    placeholder="Describe clinical presentation... (e.g., 'Patient presents with acute respiratory distress and elevated systemic markers...')"
                     className={`w-full px-6 py-5 rounded-[2rem] border-2 bg-gray-50/50 transition-all duration-300 outline-none text-gray-900 placeholder:text-gray-400 font-medium
                       ${errors.symptoms
                         ? 'border-danger focus:ring-4 focus:ring-danger/5'
@@ -158,7 +158,7 @@ export default function TriagePage() {
                 <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div className="flex items-center gap-3 text-gray-400 text-xs font-bold leading-tight">
                     <Shield className="w-5 h-5 text-green-500" />
-                    <span>Protected by Pearl Encryption <br /> SOC2 Type II Certified</span>
+                    <span>Bio-Metric Encryption Active <br /> MediAI Hub Compliance Certified</span>
                   </div>
                   <Button
                     type="submit"
@@ -168,12 +168,12 @@ export default function TriagePage() {
                     {isPending ? (
                       <>
                         <div className="w-5 h-5 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                        Analyzing Intelligence...
+                        Synchronizing Logic...
                       </>
                     ) : (
                       <>
                         <Sparkles className="w-5 h-5" />
-                        Finalize Assessment
+                        Commit Assessment
                       </>
                     )}
                   </Button>
@@ -190,8 +190,8 @@ export default function TriagePage() {
                   <Activity className="w-10 h-10" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-black text-gray-900 tracking-tight">System Ready</h3>
-                  <p className="text-gray-400 font-medium">Please enter symptoms on the left to initialize Neural Assessment.</p>
+                  <h3 className="text-xl font-black text-gray-900 tracking-tight">System Primary Ready</h3>
+                  <p className="text-gray-400 font-medium">Initialize input stream on the left to activate MediAI assessment.</p>
                 </div>
               </div>
             )}
@@ -211,7 +211,7 @@ export default function TriagePage() {
 
             {triageResult && (
               <FadeIn className="space-y-8">
-                <Card className="p-10 rounded-[3rem] border-0 shadow-2xl bg-gray-900 text-white relative overflow-hidden">
+                <Card className="p-10 rounded-[3rem] border-0 shadow-2xl bg-slate-900 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-[100px]" />
 
                   <div className="space-y-10 relative z-10">
@@ -234,7 +234,7 @@ export default function TriagePage() {
 
                     <div className="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-6">
                       <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] flex items-center gap-2">
-                        <Activity className="w-4 h-4" /> Priority Actions
+                        <Activity className="w-4 h-4" /> Recommended Protocol
                       </h4>
                       <ul className="space-y-4">
                         {triageResult.recommended?.map((step: string, i: number) => (
@@ -249,7 +249,7 @@ export default function TriagePage() {
                 </Card>
 
                 <Card className="p-8 rounded-[3rem] bg-white border border-gray-100 shadow-xl space-y-8">
-                  <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Differential Diagnostics</h4>
+                  <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Potential Conditions</h4>
                   <div className="space-y-6">
                     {triageResult.conditions?.map((c: any, index: number) => (
                       <div key={index} className="space-y-2 group cursor-default">
@@ -274,7 +274,7 @@ export default function TriagePage() {
 
         {error && (
           <Alert type="error" className="rounded-3xl p-6 font-bold shadow-xl">
-            System Error: Failed to initialize NeuralEngine. Please check your data connectivity and try again.
+            Protocol Error: Failed to synchronize with MediAI Hub. Please check data stream integrity.
           </Alert>
         )}
       </FadeIn>

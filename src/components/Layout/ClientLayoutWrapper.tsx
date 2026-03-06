@@ -9,9 +9,8 @@ export default function ClientLayoutWrapper({ children }: { children: ReactNode 
     const isHomePage = pathname === '/';
 
     return (
-        <div className="flex min-h-screen">
-            {!isHomePage && <Sidebar />}
-            <main className={`flex-1 ${isHomePage ? '' : 'p-4 md:p-8'}`}>
+        <div className="min-h-screen">
+            <main className={`${isHomePage ? '' : 'p-4 md:p-8'}`}>
                 {children}
             </main>
         </div>

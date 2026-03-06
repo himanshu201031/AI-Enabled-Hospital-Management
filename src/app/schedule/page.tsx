@@ -13,6 +13,7 @@ import Alert from '../../components/ui/Alert';
 import { useProviders } from '../../hooks/useProviders';
 import { usePatients } from '../../hooks/usePatients';
 import { useCreateAppointment } from '../../hooks/useAppointments';
+import FadeIn from '../../components/ui/FadeIn';
 
 const scheduleSchema = z.object({
   patientId: z.string().nonempty("Please select a patient"),
@@ -55,7 +56,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
+    <FadeIn className="max-w-3xl mx-auto space-y-6">
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">Schedule Appointment</h1>
         <p className="text-gray-500 mt-2">Book a new appointment for a patient with a healthcare provider.</p>
@@ -149,6 +150,6 @@ export default function SchedulePage() {
           </div>
         </form>
       </Card>
-    </div>
+    </FadeIn>
   );
 }

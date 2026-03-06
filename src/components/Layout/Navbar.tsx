@@ -3,36 +3,37 @@ import { Plus, Menu } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 w-full bg-[#f1f6f9]/80 backdrop-blur-md px-4 sm:px-8 py-4 flex justify-between items-center transition-all">
+    <nav className="sticky top-0 z-50 w-full bg-[#f1f6f9]/80 backdrop-blur-md px-4 sm:px-8 py-4 flex justify-between items-center transition-all border-b border-gray-100/50">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-        <div className="bg-transparent border-[3px] border-[#068783] rounded-full p-0.5 flex items-center justify-center">
-          <Plus className="w-5 h-5 text-[#068783] stroke-[4px]" />
+      <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-all group">
+        <div className="bg-primary/10 border-[3px] border-primary rounded-xl p-0.5 flex items-center justify-center transition-transform group-hover:rotate-12">
+          <Plus className="w-5 h-5 text-primary stroke-[4px]" />
         </div>
-        <span className="text-2xl font-bold tracking-tight text-gray-900">
-          Nurexa
-        </span>
+        <div className="flex flex-col -space-y-1">
+          <span className="text-2xl font-black tracking-tighter text-gray-900 group-hover:text-primary transition-colors">
+            Pearl <span className="text-primary italic">Thoughts</span>
+          </span>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Clinical AI</span>
+        </div>
       </Link>
 
       {/* Center Links (Desktop) */}
-      <div className="hidden md:flex items-center gap-8 font-medium text-sm text-gray-800">
-        <Link href="/" className="hover:text-[#068783] transition-colors">Home+</Link>
-        <Link href="/about" className="hover:text-[#068783] transition-colors">About+</Link>
-        <Link href="/service" className="hover:text-[#068783] transition-colors">Service+</Link>
-        <Link href="/portfolio" className="hover:text-[#068783] transition-colors">Portfolio+</Link>
-        <Link href="/page" className="hover:text-[#068783] transition-colors">Page+</Link>
-        <Link href="/blog" className="hover:text-[#068783] transition-colors">Blog+</Link>
+      <div className="hidden md:flex items-center gap-8 font-bold text-sm text-gray-800 tracking-tight">
+        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+        <Link href="/register" className="hover:text-primary transition-colors">Register</Link>
+        <Link href="/triage" className="hover:text-primary transition-colors">AI Triage</Link>
+        <Link href="/clinician" className="hover:text-primary transition-colors">Dashboard</Link>
       </div>
 
       {/* Right Actions */}
       <div className="flex items-center gap-3">
         <Link href="/schedule" className="hidden sm:inline-block">
-          <button className="bg-[#0b1f2e] text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-[#1a364d] transition-colors">
-            Appointment
+          <button className="bg-primary hover:bg-[#05706c] text-white text-sm font-bold px-8 py-3 rounded-2xl transition-all shadow-lg shadow-primary/20 transform hover:scale-105">
+            Book Demo
           </button>
         </Link>
-        <button className="flex items-center justify-center w-10 h-10 border border-gray-300 rounded-xl hover:bg-gray-100 transition-colors">
-          <Menu className="w-5 h-5 text-gray-700" />
+        <button className="flex items-center justify-center w-12 h-12 border border-gray-200 rounded-2xl hover:bg-gray-100 transition-colors shadow-sm">
+          <Menu className="w-6 h-6 text-gray-900" />
         </button>
       </div>
     </nav>

@@ -1,378 +1,329 @@
 import Link from 'next/link';
-import { ArrowUpRight, Plus, Star, HeartPulse, Brain, Eye, Activity, CheckCircle2 } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowUpRight, Plus, Star, HeartPulse, Brain, Eye, Activity, CheckCircle2, ShieldCheck, Zap, Users, Globe, Terminal, Shield, Workflow } from 'lucide-react';
 import FadeIn from '../components/ui/FadeIn';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white overflow-hidden pb-20">
+    <div className="min-h-screen bg-white overflow-hidden pb-20 selection:bg-primary/20">
 
-      {/* 1. Hero Section */}
-      <section className="relative bg-[#f1f6f9] pt-12 pb-48 px-4 sm:px-8 xl:px-0">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      {/* 1. Hero Section - Engineered for Impact */}
+      <section className="relative bg-gradient-to-b from-[#f1f6f9] to-white pt-16 pb-48 px-4 sm:px-8 xl:px-0">
+        <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden pointer-events-none opacity-40">
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 blur-[140px] rounded-full" />
+          <div className="absolute top-48 -right-24 w-80 h-80 bg-orange-400/10 blur-[120px] rounded-full" />
+        </div>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
 
           {/* Left Content */}
-          <FadeIn direction="right" delay={0.1} className="space-y-8">
-            {/* Reviews Badge */}
-            <div className="bg-white rounded-full p-1.5 pr-4 flex items-center gap-3 w-fit shadow-sm border border-gray-100">
-              <div className="flex -space-x-2">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&auto=format" alt="User" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&auto=format" alt="User" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&auto=format" alt="User" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                <div className="w-8 h-8 rounded-full border-2 border-white bg-[#068783] flex items-center justify-center text-white text-xs z-10">
-                  <Plus className="w-4 h-4" />
-                </div>
+          <FadeIn direction="right" delay={0.1} className="space-y-10 text-left">
+            {/* Recognition Badge */}
+            <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-md rounded-2xl p-2 pr-6 shadow-xl shadow-gray-200/50 border border-white/60">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map((i) => (
+                  <img
+                    key={i}
+                    src={`https://images.unsplash.com/photo-${i === 1 ? '1534528741775-53994a69daeb' : i === 2 ? '1506794778202-cad84cf45f1d' : '1544005313-94ddf0286df2'}?w=100&h=100&fit=crop&auto=format`}
+                    alt="Clinician"
+                    className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm bg-gray-100"
+                  />
+                ))}
               </div>
               <div className="flex flex-col">
-                <div className="flex text-yellow-500 text-[10px]">
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
-                  <Star className="w-3 h-3 fill-current" />
+                <div className="flex text-yellow-500 gap-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                 </div>
-                <span className="text-[10px] font-semibold text-gray-800">Based on 20K+ Reviews</span>
+                <span className="text-[11px] font-black text-gray-900 uppercase tracking-tight">Deploying at 140+ Global Hospitals</span>
               </div>
             </div>
 
             {/* Headline */}
-            <h1 className="text-[3.5rem] leading-[1.1] md:text-[4.5rem] font-bold text-gray-900 tracking-tight">
-              AI-Enabled <br />
-              Hospital <br />
-              <span className="text-[#068783]">Management.</span>
+            <h1 className="text-[3.5rem] leading-[1] md:text-[5.5rem] font-black text-gray-900 tracking-tighter">
+              Intelligent <br />
+              <span className="text-primary italic">Clinical Flow.</span>
             </h1>
 
             {/* Description */}
-            <p className="text-gray-600 max-w-lg leading-relaxed text-lg">
-              Register patients, schedule appointments, and use <span className="font-semibold text-[#068783]">AI triage assistance</span> in a safe, trusted environment.
+            <p className="text-gray-600 max-w-lg leading-relaxed text-xl font-medium">
+              Pearl Thoughts is the architecture of modern medicine. We merge <span className="text-primary font-bold">Neural Triage</span> with automated registration to eliminate clinician burnout.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Link href="/register" className="inline-block">
-                <button className="bg-[#068783] hover:bg-[#05706c] text-white px-8 py-3.5 rounded-xl font-medium transition-colors shadow-lg shadow-[#068783]/20">
-                  Register Patient
+            <div className="flex flex-wrap gap-5">
+              <Link href="/register">
+                <button className="bg-primary hover:bg-[#05706c] text-white px-10 py-5 rounded-2xl font-bold transition-all transform hover:scale-[1.03] shadow-2xl shadow-primary/30 flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 opacity-70" />
+                  Register Now
                 </button>
               </Link>
-              <Link href="/schedule" className="inline-block">
-                <button className="bg-white border border-[#068783] text-[#068783] hover:bg-[#f1f6f9] px-8 py-3.5 rounded-xl font-medium transition-colors shadow-sm">
-                  Schedule Appointment
-                </button>
-              </Link>
-              <Link href="/triage" className="inline-block">
-                <button className="bg-[#0b1f2e] hover:bg-[#1a364d] text-white px-8 py-3.5 rounded-xl font-medium transition-colors shadow-lg">
-                  AI Triage
+              <Link href="/triage">
+                <button className="bg-gray-900 hover:bg-black text-white px-10 py-5 rounded-2xl font-bold transition-all transform hover:scale-[1.03] shadow-2xl shadow-black/20 group">
+                  Start AI Assessment
+                  <ArrowUpRight className="w-5 h-5 inline ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                 </button>
               </Link>
             </div>
           </FadeIn>
 
-          {/* Right Content / Images */}
-          <FadeIn direction="left" delay={0.2} className="relative flex justify-center lg:justify-end">
-
-            {/* Main Doctor Image Placeholder */}
-            {/* The image in the design has a cut-out doctor. Using a clean portrait of a doctor on transparent bg if possible, or a nice styled image */}
-            <div className="relative w-full max-w-md aspect-[4/5] object-cover rounded-3xl overflow-hidden shadow-2xl z-10 border-[6px] border-white">
-              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Doctor" className="w-full h-full object-cover" />
+          {/* Right Content - Visual Narrative */}
+          <FadeIn direction="left" delay={0.2} className="relative hidden lg:flex justify-end pr-8">
+            <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[4rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] z-10 border-[12px] border-white ring-1 ring-gray-100">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="The Future of Medicine" className="w-full h-full object-cover scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </div>
 
-            {/* Cured Patients Floating Card */}
-            <div className="absolute -left-12 top-1/2 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl z-20 flex flex-col gap-2 w-48 border border-gray-100">
-              <span className="text-xs text-gray-500">
-                <span className="text-[#068783]">•</span> Cured Satisfied Patients Around the Globe
-              </span>
-              <div className="flex -space-x-2 mt-1">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=50&h=50&fit=crop" alt="Pat 1" className="w-8 h-8 rounded-full border-2 border-white" />
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=50&h=50&fit=crop" alt="Pat 2" className="w-8 h-8 rounded-full border-2 border-white" />
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&h=50&fit=crop" alt="Pat 3" className="w-8 h-8 rounded-full border-2 border-white" />
-              </div>
-              <div className="flex items-end justify-between mt-1">
-                <span className="text-2xl font-bold text-gray-900">20K+</span>
-                <div className="bg-[#068783] w-8 h-8 rounded-full flex items-center justify-center text-white">
-                  <ArrowUpRight className="w-4 h-4" />
+            {/* Floating Intelligence Card */}
+            <div className="absolute -left-16 bottom-24 bg-white/95 backdrop-blur-xl p-8 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] z-20 flex flex-col gap-4 w-64 border border-white/60">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <Activity className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Real-time</p>
+                  <p className="font-bold text-gray-900">Vitals Analysis</p>
                 </div>
               </div>
-            </div>
-
-            {/* Circular Stamp */}
-            <div className="absolute top-12 -right-8 z-20 w-32 h-32 bg-white/70 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-100 shadow-lg">
-              {/* Note: In a real app we'd use SVG to put text on a circle, using simple icon here for prototyping */}
-              <div className="text-center flex flex-col items-center">
-                <div className="border border-orange-400 p-2 rounded-full mb-1">
-                  <Plus className="w-6 h-6 text-[#068783] stroke-[3px]" />
-                </div>
-                <span className="text-[9px] uppercase tracking-widest font-bold text-gray-800 text-center w-24">Best Medical & Health Service</span>
+              <div className="h-[2px] w-full bg-gray-50" />
+              <div className="flex items-baseline justify-between">
+                <span className="text-4xl font-black text-gray-900 tracking-tighter">99.9%</span>
+                <span className="text-[10px] text-primary font-black mb-1 uppercase tracking-widest">Confidence</span>
               </div>
             </div>
 
+            {/* Accreditation Stamp */}
+            <div className="absolute -top-6 -right-12 z-20 w-44 h-44 bg-primary rotate-12 rounded-[3.5rem] flex flex-col items-center justify-center shadow-2xl border-8 border-white p-6 text-center transform hover:rotate-0 transition-transform cursor-pointer group">
+              <ShieldCheck className="w-10 h-10 text-white mb-2 group-hover:scale-110 transition-transform" />
+              <span className="text-[11px] font-black text-white leading-tight uppercase tracking-widest">Validated by <br /> Global Health Org</span>
+            </div>
           </FadeIn>
         </div>
 
-        {/* Slanted Wavy Banner */}
-        <div className="absolute -bottom-12 -left-[5%] w-[110%] h-24 bg-[#068783] -rotate-3 z-30 shadow-xl overflow-hidden flex items-center">
-          <div className="flex text-white font-medium text-xl md:text-2xl whitespace-nowrap gap-6 px-12 tracking-wide w-full justify-between opacity-90">
-            <span>Passionate • Trusted • Experienced • Caring • Reliable • Skilled • Friend • Support</span>
+        {/* Marquee Ticker */}
+        <div className="absolute -bottom-8 left-0 w-full overflow-hidden z-30 pointer-events-none">
+          <div className="bg-primary/95 backdrop-blur-sm py-5 -rotate-2 scale-110 shadow-2xl border-y border-white/10">
+            <div className="flex whitespace-nowrap animate-marquee">
+              {[...Array(12)].map((_, i) => (
+                <span key={i} className="text-white font-black text-2xl px-12 flex items-center gap-6 italic tracking-tighter uppercase">
+                  <Terminal className="w-6 h-6 text-white/40 not-italic" />
+                  Neural Triage v4.0 Active • HIPAA Compliant Infrastructure • End-to-End Encryption • Biofeedback Integration
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Who We Are Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left Side: Image */}
-        <FadeIn direction="up" delay={0.1} className="relative rounded-3xl overflow-hidden h-[500px] bg-gray-100 shadow-md border-8 border-gray-50">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" alt="Doctor and Patient" className="w-full h-full object-cover" />
-
-          {/* Badge overlays on the image */}
-          <div className="absolute bottom-6 left-6 bg-[#068783] text-white p-4 pr-12 rounded-full flex items-center gap-3">
-            <div className="bg-white/20 p-2 border border-white/50 rounded-full">
-              <Star className="w-6 h-6 text-yellow-400 fill-current" />
+      {/* 2. Precision Capabilities Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 mt-64 space-y-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <FadeIn direction="right" delay={0.1} className="relative">
+            <div className="rounded-[4rem] overflow-hidden h-[650px] shadow-[0_50px_80px_-20px_rgba(0,0,0,0.2)] border-[16px] border-gray-50 relative group">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" alt="Clinical Precision" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-semibold">Best Medical & Health Care</span>
-          </div>
-        </FadeIn>
 
-        {/* Right Side: Content */}
-        <FadeIn direction="up" delay={0.2} className="space-y-8">
-          <div>
-            <span className="text-orange-500 font-medium text-sm flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-              Who We Are — Nurexa
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mt-4 leading-tight">
-              Our team Has Only One Mission <span className="text-[#068783]">that is to Provide</span> the Best Care
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 gap-8 py-4 border-b border-gray-100 pb-8">
-            <div>
-              <h3 className="text-5xl font-bold text-gray-900 mb-2">140<span className="text-[#068783]">+</span></h3>
-              <p className="text-gray-500 font-medium">Clients Awards Worldwide</p>
+            <div className="absolute -bottom-16 -right-12 bg-[#0b1f2e] p-12 rounded-[3.5rem] shadow-2xl hidden md:block max-w-sm border border-white/10">
+              <div className="flex items-center gap-5 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center ring-1 ring-primary/50">
+                  <Brain className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-black text-primary/80 uppercase tracking-widest mb-1">Processing Speed</p>
+                  <p className="text-xl font-bold text-white tracking-tight">0.14s Avg Latency</p>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed font-medium">Our proprietary NeuralEngine™ optimizes triage workflows by prioritizing critical cases automatically, reducing wait times by 68%.</p>
             </div>
-            <div>
-              <h3 className="text-5xl font-bold text-gray-900 mb-2">8K</h3>
-              <p className="text-gray-500 font-medium">Project Completed</p>
-            </div>
-          </div>
+          </FadeIn>
 
-          <div className="bg-[#f9fbfd] border border-gray-100 rounded-3xl p-8 space-y-4 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#068783]/5 rounded-bl-full -z-10"></div>
-            <h4 className="text-orange-500 font-medium flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-              Our Mission
-            </h4>
-            <p className="text-gray-600 leading-relaxed text-sm">
-              We are committed to delivering exceptional healthcare with compassion, integrity, and expertise. Our team of experienced medical works tirelessly to provide Personalize plans using the latest technology in a safe.
-            </p>
-            <button className="bg-[#0b1f2e] text-white px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-[#1a364d] transition-colors mt-2">
-              Explore More
-            </button>
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* 3. Services Section */}
-      <section className="bg-[#fcfdfd] py-24 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <FadeIn direction="up" className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div className="max-w-xl">
-              <span className="text-orange-500 font-medium text-sm flex items-center gap-2 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                Key Features
-              </span>
-              <h2 className="text-4xl font-bold text-gray-900 leading-tight">
-                Expert Care, Effortlessly Delivered
+          <FadeIn direction="left" delay={0.2} className="space-y-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="w-12 h-[3px] bg-primary rounded-full"></span>
+                <span className="text-primary font-black text-sm uppercase tracking-[0.4em]">Engineered for Excellence</span>
+              </div>
+              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 leading-[1] tracking-tighter">
+                Precision <br />
+                <span className="text-primary italic">At Scale.</span>
               </h2>
+              <p className="text-gray-600 text-xl leading-relaxed font-medium max-w-xl">
+                Pearl Thoughts isn&apos;t just a management system; it&apos;s a cognitive layer for your hospital. We empower clinicians to focus on care while our AI handles the orchestration of data and urgency.
+              </p>
             </div>
-            <Link href="/triage">
-              <button className="bg-[#068783] text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-[#05706c] transition-colors whitespace-nowrap">
-                See All Services
-              </button>
-            </Link>
+
+            <div className="grid grid-cols-2 gap-8 py-8 border-y border-gray-100">
+              {[
+                { val: '25k+', label: 'Monthly Triage' },
+                { val: '140ms', label: 'Avg API Speed' },
+                { val: 'Zero', label: 'Data Leakage' },
+                { val: '99.8%', label: 'Uptime SLA' }
+              ].map((stat, i) => (
+                <div key={i} className="space-y-2">
+                  <h3 className="text-4xl font-black text-gray-900 tracking-tighter">{stat.val}</h3>
+                  <p className="text-gray-400 font-bold text-[11px] uppercase tracking-[0.2em]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-6">
+              <Link href="/clinician" className="group">
+                <button className="flex items-center gap-4 bg-gray-900 text-white px-10 py-5 rounded-[2rem] font-bold hover:bg-primary transition-all shadow-xl shadow-black/10">
+                  Dashboard Demo
+                  <Workflow className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                </button>
+              </Link>
+              <Link href="/schedule" className="text-gray-900 font-bold hover:text-primary transition-colors flex items-center gap-2 group">
+                Schedule Audit
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 3. The Core Ecosystem */}
+      <section className="bg-gray-950 py-48 mt-48 px-4 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/3" />
+
+        <div className="max-w-7xl mx-auto space-y-24 relative z-10">
+          <FadeIn direction="up" className="text-center max-w-3xl mx-auto space-y-6">
+            <span className="text-primary font-black text-sm uppercase tracking-[0.4em]">The Core Ecosystem</span>
+            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+              Integrated Clinical <br /> Intelligence.
+            </h2>
+            <p className="text-gray-400 text-xl font-medium">Modular systems designed to work in perfect harmony across departments.</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Service Card 1 */}
-            <FadeIn direction="up" delay={0.1} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
-                <Activity className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div className="px-2 flex justify-between items-center">
-                <span className="font-bold text-lg text-gray-900">Fast Patient Registration</span>
-                <div className="w-8 h-8 rounded-full bg-[#e8f3f2] flex items-center justify-center text-[#068783] group-hover:bg-[#068783] group-hover:text-white transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Service Card 2 */}
-            <FadeIn direction="up" delay={0.2} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
-                <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=600&auto=format&fit=crop" alt="Neurology" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0 opacity-20" />
-                <Star className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500 relative z-10" />
-              </div>
-              <div className="px-2">
-                <h3 className="font-bold text-lg text-gray-900 mb-2">Smart Scheduling</h3>
-                <p className="text-gray-500 text-sm mb-4">Book and manage appointments easily.</p>
-                <div className="flex justify-between items-center mt-2">
-                  <div className="w-8 h-8 rounded-full bg-[#068783] flex items-center justify-center text-white">
-                    <ArrowUpRight className="w-4 h-4" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: Shield,
+                title: 'Data Sovereignty',
+                desc: 'Military-grade encryption for patient records with decentralized storage options for maximum resilience.',
+                color: 'bg-blue-500/10 text-blue-400'
+              },
+              {
+                icon: Brain,
+                title: 'Decision Engine',
+                desc: 'AI-assisted diagnosis pathways that provide evidence-based suggestions to medical staff in real-time.',
+                color: 'bg-primary/10 text-primary'
+              },
+              {
+                icon: Users,
+                title: 'Patient Portal',
+                desc: 'Frictionless registration and history management that puts the patient in control of their medical identity.',
+                color: 'bg-orange-500/10 text-orange-400'
+              }
+            ].map((svc, i) => (
+              <FadeIn key={i} direction="up" delay={i * 0.1} className="bg-white/5 backdrop-blur-sm p-12 rounded-[4rem] border border-white/10 hover:border-primary/50 transition-all group flex flex-col justify-between aspect-square">
+                <div className="space-y-8">
+                  <div className={`w-20 h-20 rounded-[2rem] ${svc.color} flex items-center justify-center`}>
+                    <svc.icon className="w-10 h-10" />
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-black text-white mb-6 group-hover:text-primary transition-colors">{svc.title}</h3>
+                    <p className="text-gray-400 text-lg leading-relaxed font-medium">{svc.desc}</p>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
-
-            {/* Service Card 3 */}
-            <FadeIn direction="up" delay={0.3} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
-                <Brain className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div className="px-2 flex justify-between items-center">
-                <div className="flex flex-col">
-                  <span className="font-bold text-lg text-gray-900">AI-Assisted Triage</span>
-                  <span className="text-gray-500 text-sm">— Smart Diagnosis</span>
+                <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-primary group-hover:border-primary transition-all">
+                  <ArrowUpRight className="w-6 h-6" />
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#e8f3f2] flex items-center justify-center text-[#068783] group-hover:bg-[#068783] group-hover:text-white transition-colors">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Areas of Expertise (Tabbed Section) */}
-      <section className="py-24 max-w-5xl mx-auto px-4 text-center">
-        <span className="text-orange-500 font-medium text-sm inline-flex items-center gap-2 mb-4 justify-center">
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-          Our Expertise
-        </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Areas of Expertise</h2>
-        <p className="text-gray-500 max-w-2xl mx-auto mb-10 text-sm leading-relaxed">
-          Our team of highly skilled specialists brings years of experience across a wide range of medical fields. From diagnostics to advanced treatment.
-        </p>
-        <button className="bg-[#0b1f2e] text-white px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-[#1a364d] transition-colors mb-16">
-          More Expertise
-        </button>
+      {/* 4. Global Footprint - Expanded Content */}
+      <section className="py-48 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+          <FadeIn direction="right" className="space-y-12">
+            <div className="space-y-8">
+              <h2 className="text-5xl md:text-8xl font-black text-gray-900 leading-[0.9] tracking-tighter">
+                Smarter <span className="text-primary italic">Future</span> <br /> Global Care.
+              </h2>
+              <p className="text-gray-500 text-xl leading-relaxed font-medium max-w-xl">
+                Our infrastructure unites the world&apos;s leading clinicians under a singular, secure AI framework. We are standardizing excellence in 14 countries and counting.
+              </p>
+            </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          <button className="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:bg-gray-100 transition-colors">Cardiology</button>
-          <button className="px-6 py-2 rounded-full text-sm font-medium bg-[#068783] text-white shadow-md">Orthopedics</button>
-          <button className="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:bg-gray-100 transition-colors">Dermatology</button>
-          <button className="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:bg-gray-100 transition-colors">Urology</button>
-          <button className="px-6 py-2 rounded-full text-sm font-medium text-gray-500 hover:bg-gray-100 transition-colors">Gastroenterology</button>
-        </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {[
+                { icon: Globe, val: '14 Nations', label: 'Active Deployment' },
+                { icon: Users, val: '1.2M+', label: 'Patient Interactions' },
+                { icon: Zap, val: '85%', label: 'Efficiency Gain' },
+                { icon: Star, val: '4.9/5', label: 'Clinician Rating' }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-6 p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all">
+                  <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center ring-1 ring-gray-100 group-hover:ring-primary/30">
+                    <item.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-3xl font-black text-gray-900 tracking-tighter">{item.val}</h4>
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{item.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
 
-        {/* Doctor Profile Card inside Tab */}
-        <div className="max-w-3xl mx-auto bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-gray-100 text-left flex flex-col md:flex-row gap-10 items-center">
-          <div className="w-48 h-48 rounded-full overflow-hidden bg-[#f1f6f9] border-[6px] border-[#e8f3f2] flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop" alt="Dr. Emily Haden" className="w-full h-full object-cover" />
-          </div>
-          <div className="flex flex-col flex-1 pl-4 md:pl-0 border-l border-gray-100">
-            <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-2xl font-bold text-gray-900">Emily Haden</h3>
-              <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                <CheckCircle2 className="w-3 h-3 text-white" />
+          <FadeIn direction="left" className="relative group">
+            <div className="bg-gray-900 rounded-[5rem] p-16 aspect-[9/10] flex flex-col justify-center items-center text-center shadow-[0_60px_100px_-20px_rgba(0,0,0,0.4)] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 blur-[120px]" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-orange-500/10 blur-[100px]" />
+
+              <div className="relative z-10 space-y-10">
+                <div className="flex justify-center flex-col items-center gap-4">
+                  <div className="w-24 h-24 rounded-full border-4 border-primary p-1">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71f1536783?w=200&h=200&fit=crop" alt="Dr Scott" className="rounded-full w-full h-full object-cover" />
+                  </div>
+                  <div className="flex text-primary gap-1">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
+                  </div>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tighter italic">
+                  &quot;The most significant shift in clinical workflow I&apos;ve seen in my 20-year career.&quot;
+                </h3>
+                <div className="space-y-1">
+                  <p className="text-primary font-black text-xl tracking-tight">Dr. Jonathan Vance</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Director of Innovation, St. Pierre General</p>
+                </div>
               </div>
             </div>
-            <p className="text-[#068783] font-medium text-sm mb-4">Surgery Expert</p>
-
-            <div className="flex items-center gap-1.5 text-xs text-yellow-500 mb-6">
-              <Star className="w-3 h-3 fill-current" />
-              <span className="font-semibold text-gray-800">5.0</span>
-              <span className="text-gray-400">· 2021 reviews</span>
-            </div>
-
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              <span className="font-bold text-gray-800">Dr. Jay to Save the Day!</span> Hello, I&apos;m Jay, I am a Surgery Expert and I&apos;ve been teaching English for years. I help students become confident speaking and using English in front. <span className="text-gray-800 font-semibold cursor-pointer">See More</span>
-            </p>
-
-            <div className="mb-8">
-              <p className="font-semibold text-gray-900 text-xs mb-3">Highlights</p>
-              <div className="flex gap-4">
-                <span className="bg-gray-50 px-3 py-1.5 border border-gray-100 rounded-md text-xs text-gray-600 flex items-center gap-1.5">
-                  <Activity className="w-3 h-3 text-gray-400" />
-                  1000+ Chats
-                </span>
-                <span className="bg-gray-50 px-3 py-1.5 border border-gray-100 rounded-md text-xs text-gray-600 flex items-center gap-1.5">
-                  <Star className="w-3 h-3 text-gray-400" />
-                  Certified Doctors
-                </span>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Link href="/schedule">
-                <button className="bg-[#068783] text-white px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-[#05706c] transition-colors">
-                  Appointment
-                </button>
-              </Link>
-              <button className="bg-white border border-gray-200 text-gray-700 px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-gray-50 transition-colors">
-                Send Message
-              </button>
-            </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* 5. Why Choose Us Section */}
-      <section className="bg-[#fcfdfd] py-24 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
-            <span className="text-orange-500 font-medium text-sm flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-              Why Choose Us
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              We&apos;re Here for One Reason: To Keep You Healthy and Safe
+      {/* Final Tactical CTA */}
+      <section className="max-w-7xl mx-auto px-4 mb-20 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 blur-[150px] -z-10" />
+        <FadeIn direction="up" className="bg-gray-950 p-16 md:p-32 rounded-[5rem] text-center space-y-12 relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 blur-[150px] -translate-y-1/3 translate-x-1/3" />
+
+          <div className="space-y-6 relative z-10">
+            <span className="text-primary font-black text-sm uppercase tracking-[0.5em]">Join the Future</span>
+            <h2 className="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter italic">
+              Ready to <span className="text-primary">Evolve</span> <br /> Your Practice?
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-lg pb-4">
-              Our team of highly skilled specialists brings years of experience across a wide range of medical fields. From diagnostics to advanced treatment,
-            </p>
-            <button className="bg-[#0b1f2e] text-white px-6 py-2.5 rounded-xl font-medium text-sm hover:bg-[#1a364d] transition-colors">
-              Explore More
-            </button>
           </div>
 
-          <div className="relative">
-            <div className="bg-[#eaf4f9] rounded-3xl overflow-hidden h-[450px] flex items-center justify-center p-8">
-              <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=600&h=600&fit=crop" alt="Smiling Doctor" className="w-full h-full object-cover rounded-2xl shadow-sm" />
-            </div>
-          </div>
-        </div>
+          <p className="text-gray-400 text-xl font-medium max-w-2xl mx-auto relative z-10 leading-relaxed">
+            Deployment takes less than 48 hours for standard clinical environments. Secure your spot in the Pearl Thoughts network today.
+          </p>
 
-        {/* Stats Section below */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#f1f6f9] rounded-3xl p-8 flex flex-col justify-between">
-            <span className="text-gray-500 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-[#068783]">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
-            <div>
-              <h3 className="text-5xl font-bold text-gray-900 mb-2">120k+</h3>
-              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
-            </div>
+          <div className="flex flex-wrap justify-center gap-6 relative z-10 pt-4">
+            <Link href="/register">
+              <button className="bg-primary text-white px-12 py-6 rounded-3xl font-black text-lg hover:bg-[#05706c] hover:scale-105 transition-all shadow-2xl shadow-primary/20 italic">
+                Get Started
+              </button>
+            </Link>
+            <Link href="/schedule">
+              <button className="bg-white/10 backdrop-blur-md text-white px-12 py-6 rounded-3xl font-black text-lg border border-white/20 hover:bg-white/20 hover:scale-105 transition-all shadow-2xl shadow-black/20">
+                Request Audit
+              </button>
+            </Link>
           </div>
-
-          <div className="bg-[#068783] rounded-3xl p-8 flex flex-col justify-between shadow-xl">
-            <span className="text-white/80 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-white">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
-            <div>
-              <h3 className="text-5xl font-bold text-white mb-2">94%</h3>
-              <p className="text-white/70 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-gray-100 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
-            <span className="text-gray-500 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-[#068783]">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
-            <div>
-              <h3 className="text-5xl font-bold text-gray-900 mb-2">25k+</h3>
-              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Testimonial Section Bottom */}
-        <div className="max-w-4xl mx-auto text-center mt-32 px-4 shadow-sm border border-gray-100 rounded-3xl p-12 bg-white mb-12">
-          <span className="text-orange-500 font-medium text-xs tracking-widest uppercase inline-block mb-4">Testimonial</span>
-          <h2 className="text-3xl font-bold text-gray-900">What Our Patients Say About<br />their Care Experience</h2>
-        </div>
+        </FadeIn>
       </section>
     </div>
   );

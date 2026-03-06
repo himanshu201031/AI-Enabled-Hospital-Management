@@ -6,6 +6,7 @@ import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import { Calendar, Clock, LayoutDashboard, ChevronRight, CheckCircle2 } from 'lucide-react';
 import Button from '../../components/ui/Button';
+import FadeIn from '../../components/ui/FadeIn';
 
 export default function ClinicianPage() {
   const { data: appointments, isLoading, error } = useAppointments();
@@ -20,7 +21,7 @@ export default function ClinicianPage() {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <FadeIn className="space-y-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 flex items-center gap-3">
@@ -93,21 +94,26 @@ export default function ClinicianPage() {
                 <TableHead className="font-semibold text-gray-600">Provider</TableHead>
                 <TableHead className="font-semibold text-gray-600">Date & Time</TableHead>
                 <TableHead className="font-semibold text-gray-600">Status</TableHead>
+                <TableHead className="font-semibold text-gray-600">AI Urgency</TableHead>
                 <TableHead className="text-right font-semibold text-gray-600">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {appointments.map((appt: any, idx: number) => {
-                const date = new Date(appt.time);
+                const date = new Date(appt.time || appt.date);
+                const patientName = appt.patient || appt.patientId || 'Unknown Patient';
+                const providerName = appt.provider || appt.providerId || 'Unknown Provider';
+                const providerInitial = providerName !== 'Unknown Provider' ? providerName.charAt(0) : '?';
+
                 return (
                   <TableRow key={idx} className="group">
-                    <TableCell className="font-medium text-gray-900">{appt.patient}</TableCell>
+                    <TableCell className="font-medium text-gray-900">{patientName}</TableCell>
                     <TableCell className="text-gray-600">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">
-                          {appt.provider ? appt.provider.charAt(3) : '?'}
+                          {providerInitial}
                         </div>
-                        {appt.provider || 'Unknown Provider'}
+                        {providerName}
                       </div>
                     </TableCell>
                     <TableCell>
@@ -118,13 +124,18 @@ export default function ClinicianPage() {
                         </span>
                         <span className="flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded-md">
                           <Clock className="w-3.5 h-3.5 text-gray-400" />
-                          {date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          {appt.time ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'N/A'}
                         </span>
                       </div>
                     </TableCell>
                     <TableCell>
                       <Badge variant={getStatusBadge(appt.status)} className="capitalize">
-                        {appt.status}
+                        {appt.status || 'Scheduled'}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant={appt.urgency?.toLowerCase() === 'high' ? 'danger' : appt.urgency?.toLowerCase() === 'medium' ? 'warning' : 'success'}>
+                        {appt.urgency || 'Low'}
                       </Badge>
                     </TableCell>
                     <TableCell className="text-right">
@@ -147,6 +158,6 @@ export default function ClinicianPage() {
           </div>
         )}
       </Card>
-    </div>
+    </FadeIn>
   );
 }

@@ -27,7 +27,7 @@ export default function ClinicianPage() {
             <LayoutDashboard className="w-8 h-8 text-primary" />
             Clinician Dashboard
           </h1>
-          <p className="text-gray-500 mt-2">Overview of today's appointments and clinic metrics.</p>
+          <p className="text-gray-500 mt-2">Overview of today&apos;s appointments and clinic metrics.</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="secondary">Download Report</Button>
@@ -40,7 +40,7 @@ export default function ClinicianPage() {
           <div className="absolute top-0 right-0 p-4 opacity-20 transition-transform group-hover:scale-110">
             <Calendar className="w-16 h-16 text-primary" />
           </div>
-          <h3 className="text-sm font-medium text-gray-500 mb-2 relative z-10">Today's Appointments</h3>
+          <h3 className="text-sm font-medium text-gray-500 mb-2 relative z-10">Today&apos;s Appointments</h3>
           <p className="text-4xl font-bold text-gray-900 relative z-10">{appointments?.length || 0}</p>
         </Card>
         <Card className="p-6 bg-gradient-to-br from-warning/10 to-transparent border-warning/20 relative overflow-hidden group">
@@ -105,9 +105,9 @@ export default function ClinicianPage() {
                     <TableCell className="text-gray-600">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">
-                          {appt.provider.charAt(3)}
+                          {appt.provider ? appt.provider.charAt(3) : '?'}
                         </div>
-                        {appt.provider}
+                        {appt.provider || 'Unknown Provider'}
                       </div>
                     </TableCell>
                     <TableCell>

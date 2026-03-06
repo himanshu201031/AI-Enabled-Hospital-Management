@@ -7,6 +7,11 @@ import { Home, UserPlus, Calendar, Activity, LayoutDashboard } from 'lucide-reac
 export default function Sidebar() {
   const pathname = usePathname();
 
+  // Hide sidebar on the home page entirely
+  if (pathname === '/') {
+    return null;
+  }
+
   const links = [
     { href: '/', label: 'Dashboard', icon: Home },
     { href: '/register', label: 'Register Patient', icon: UserPlus },

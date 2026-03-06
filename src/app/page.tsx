@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Plus, Star, HeartPulse, Brain, Eye, Activity, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import FadeIn from '../components/ui/FadeIn';
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
           {/* Left Content */}
-          <div className="space-y-8">
+          <FadeIn direction="right" delay={0.1} className="space-y-8">
             {/* Reviews Badge */}
             <div className="bg-white rounded-full p-1.5 pr-4 flex items-center gap-3 w-fit shadow-sm border border-gray-100">
               <div className="flex -space-x-2">
@@ -36,26 +37,38 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 className="text-[3.5rem] leading-[1.1] md:text-[4.5rem] font-bold text-gray-900 tracking-tight">
-              Get the Care <br />
-              — You Need & <br />
-              <span className="text-[#068783]">Faster.</span>
+              AI-Enabled <br />
+              Hospital <br />
+              <span className="text-[#068783]">Management.</span>
             </h1>
 
             {/* Description */}
             <p className="text-gray-600 max-w-lg leading-relaxed text-lg">
-              <span className="font-semibold text-[#068783]">Our team of Experienced</span> medical professionals delivers advanced <span className="font-semibold text-[#068783]">Patient-Centered</span> care tailored to your unique health needs – in a safe, trusted environment.
+              Register patients, schedule appointments, and use <span className="font-semibold text-[#068783]">AI triage assistance</span> in a safe, trusted environment.
             </p>
 
-            {/* CTA Button */}
-            <Link href="/schedule" className="inline-block">
-              <button className="bg-[#068783] hover:bg-[#05706c] text-white px-8 py-3.5 rounded-xl font-medium transition-colors shadow-lg shadow-[#068783]/20">
-                Book Appointment
-              </button>
-            </Link>
-          </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Link href="/register" className="inline-block">
+                <button className="bg-[#068783] hover:bg-[#05706c] text-white px-8 py-3.5 rounded-xl font-medium transition-colors shadow-lg shadow-[#068783]/20">
+                  Register Patient
+                </button>
+              </Link>
+              <Link href="/schedule" className="inline-block">
+                <button className="bg-white border border-[#068783] text-[#068783] hover:bg-[#f1f6f9] px-8 py-3.5 rounded-xl font-medium transition-colors shadow-sm">
+                  Schedule Appointment
+                </button>
+              </Link>
+              <Link href="/triage" className="inline-block">
+                <button className="bg-[#0b1f2e] hover:bg-[#1a364d] text-white px-8 py-3.5 rounded-xl font-medium transition-colors shadow-lg">
+                  AI Triage
+                </button>
+              </Link>
+            </div>
+          </FadeIn>
 
           {/* Right Content / Images */}
-          <div className="relative flex justify-center lg:justify-end">
+          <FadeIn direction="left" delay={0.2} className="relative flex justify-center lg:justify-end">
 
             {/* Main Doctor Image Placeholder */}
             {/* The image in the design has a cut-out doctor. Using a clean portrait of a doctor on transparent bg if possible, or a nice styled image */}
@@ -92,7 +105,7 @@ export default function HomePage() {
               </div>
             </div>
 
-          </div>
+          </FadeIn>
         </div>
 
         {/* Slanted Wavy Banner */}
@@ -106,7 +119,7 @@ export default function HomePage() {
       {/* 2. Who We Are Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Side: Image */}
-        <div className="relative rounded-3xl overflow-hidden h-[500px] bg-gray-100 shadow-md border-8 border-gray-50">
+        <FadeIn direction="up" delay={0.1} className="relative rounded-3xl overflow-hidden h-[500px] bg-gray-100 shadow-md border-8 border-gray-50">
           <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" alt="Doctor and Patient" className="w-full h-full object-cover" />
 
           {/* Badge overlays on the image */}
@@ -116,17 +129,17 @@ export default function HomePage() {
             </div>
             <span className="font-semibold">Best Medical & Health Care</span>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Right Side: Content */}
-        <div className="space-y-8">
+        <FadeIn direction="up" delay={0.2} className="space-y-8">
           <div>
             <span className="text-orange-500 font-medium text-sm flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
               Who We Are — Nurexa
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mt-4 leading-tight">
-              Our team Has Only One Mission <span className="text-[#068783]">that is to Take</span> Care Your Smile
+              Our team Has Only One Mission <span className="text-[#068783]">that is to Provide</span> the Best Care
             </h2>
           </div>
 
@@ -154,17 +167,17 @@ export default function HomePage() {
               Explore More
             </button>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* 3. Services Section */}
       <section className="bg-[#fcfdfd] py-24 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <FadeIn direction="up" className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-xl">
               <span className="text-orange-500 font-medium text-sm flex items-center gap-2 mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                Our Medical Service
+                Key Features
               </span>
               <h2 className="text-4xl font-bold text-gray-900 leading-tight">
                 Expert Care, Effortlessly Delivered
@@ -175,53 +188,54 @@ export default function HomePage() {
                 See All Services
               </button>
             </Link>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Service Card 1 */}
-            <div className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative">
-                <img src="https://images.unsplash.com/photo-1551076805-e16060c1e1ff?q=80&w=600&auto=format&fit=crop" alt="Eye Health" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <FadeIn direction="up" delay={0.1} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
+                <Activity className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="px-2 flex justify-between items-center">
-                <span className="font-bold text-lg text-gray-900">Precision Eye Health Services</span>
+                <span className="font-bold text-lg text-gray-900">Fast Patient Registration</span>
                 <div className="w-8 h-8 rounded-full bg-[#e8f3f2] flex items-center justify-center text-[#068783] group-hover:bg-[#068783] group-hover:text-white transition-colors">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Service Card 2 */}
-            <div className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative">
-                <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=600&auto=format&fit=crop" alt="Neurology" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <FadeIn direction="up" delay={0.2} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
+                <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=600&auto=format&fit=crop" alt="Neurology" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0 opacity-20" />
+                <Star className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500 relative z-10" />
               </div>
               <div className="px-2">
-                <h3 className="font-bold text-lg text-gray-900 mb-2">Neurology & Brain Health</h3>
-                <p className="text-gray-500 text-sm mb-4">We provide a wide range of medical services designed to support you.</p>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">Smart Scheduling</h3>
+                <p className="text-gray-500 text-sm mb-4">Book and manage appointments easily.</p>
                 <div className="flex justify-between items-center mt-2">
                   <div className="w-8 h-8 rounded-full bg-[#068783] flex items-center justify-center text-white">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Service Card 3 */}
-            <div className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative">
-                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=600&auto=format&fit=crop" alt="Stomach Liver Care" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <FadeIn direction="up" delay={0.3} className="bg-white p-4 pb-6 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-50 group hover:-translate-y-1 transition-transform cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-gray-100 relative items-center justify-center flex">
+                <Brain className="w-16 h-16 text-[#068783] group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="px-2 flex justify-between items-center">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg text-gray-900">Gastroenterology</span>
-                  <span className="text-gray-500 text-sm">— Stomach Liver Care</span>
+                  <span className="font-bold text-lg text-gray-900">AI-Assisted Triage</span>
+                  <span className="text-gray-500 text-sm">— Smart Diagnosis</span>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[#e8f3f2] flex items-center justify-center text-[#068783] group-hover:bg-[#068783] group-hover:text-white transition-colors">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -270,7 +284,7 @@ export default function HomePage() {
             </div>
 
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              <span className="font-bold text-gray-800">Dr. Jay to Save the Day!</span> Hello, I'm Jay, I am a Surgery Expert and I've been teaching English for years. I help students become confident speaking and using English in front. <span className="text-gray-800 font-semibold cursor-pointer">See More</span>
+              <span className="font-bold text-gray-800">Dr. Jay to Save the Day!</span> Hello, I&apos;m Jay, I am a Surgery Expert and I&apos;ve been teaching English for years. I help students become confident speaking and using English in front. <span className="text-gray-800 font-semibold cursor-pointer">See More</span>
             </p>
 
             <div className="mb-8">
@@ -310,7 +324,7 @@ export default function HomePage() {
               Why Choose Us
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              We're Here for One Reason To Keep You Smiling with Confidence
+              We&apos;re Here for One Reason: To Keep You Healthy and Safe
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed max-w-lg pb-4">
               Our team of highly skilled specialists brings years of experience across a wide range of medical fields. From diagnostics to advanced treatment,
@@ -333,7 +347,7 @@ export default function HomePage() {
             <span className="text-gray-500 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-[#068783]">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
             <div>
               <h3 className="text-5xl font-bold text-gray-900 mb-2">120k+</h3>
-              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it's monitoring vital signs, activity levels.</p>
+              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
             </div>
           </div>
 
@@ -341,7 +355,7 @@ export default function HomePage() {
             <span className="text-white/80 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-white">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
             <div>
               <h3 className="text-5xl font-bold text-white mb-2">94%</h3>
-              <p className="text-white/70 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it's monitoring vital signs, activity levels.</p>
+              <p className="text-white/70 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
             </div>
           </div>
 
@@ -349,7 +363,7 @@ export default function HomePage() {
             <span className="text-gray-500 text-xs font-semibold mb-6 block leading-relaxed max-w-[150px]"><span className="text-[#068783]">Patient Satisfaction</span> Rate Base on Follow-Up Surveys</span>
             <div>
               <h3 className="text-5xl font-bold text-gray-900 mb-2">25k+</h3>
-              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it's monitoring vital signs, activity levels.</p>
+              <p className="text-gray-400 text-xs leading-relaxed max-w-[200px]">Designed to help you track and understand your health in real time. Whether it&apos;s monitoring vital signs, activity levels.</p>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ export default function TriagePage() {
         </div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">AI-Assisted Triage</h1>
         <p className="text-gray-500 max-w-2xl mx-auto">
-          Enter the patient's symptoms to receive an AI-generated preliminary assessment, including urgency level and possible conditions.
+          Enter the patient&apos;s symptoms to receive an AI-generated preliminary assessment, including urgency level and possible conditions.
         </p>
       </div>
 

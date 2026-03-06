@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2563EB', // Primary Blue
-          light: '#DBEAFE',   // Light Blue
+          DEFAULT: '#068783', // Nurexa Teal
+          light: '#e8f3f2',   // Light Teal
         },
         success: '#22C55E', // Success Green
         warning: '#F59E0B', // Warning Yellow

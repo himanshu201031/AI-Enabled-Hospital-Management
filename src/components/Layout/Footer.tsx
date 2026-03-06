@@ -15,13 +15,13 @@ export default function Footer() {
             </div>
             <div className="flex flex-col -space-y-1">
               <span className="text-3xl font-black tracking-tighter text-gray-950 italic">
-                Pearl <span className="text-primary not-italic">Thoughts</span>
+                MediAI <span className="text-primary not-italic">Hub</span>
               </span>
               <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/70">Intelligence for Life</span>
             </div>
           </Link>
           <p className="text-gray-500 text-lg leading-relaxed max-w-sm font-medium">
-            Standardizing clinical excellence through the power of Pearl AI. Mission-critical infrastructure for the modern healer.
+            Standardizing clinical excellence through the power of advanced clinical AI. Mission-critical infrastructure for the modern healer.
           </p>
           <div className="flex gap-4 pt-4">
             {[Twitter, Github, Linkedin].map((Icon, i) => (
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="text-xs text-gray-400 font-bold md:text-right uppercase tracking-[0.2em]">
-          © {new Date().getFullYear()} Pearl thoughts Health AI • Excellence by Design.
+          © {new Date().getFullYear()} MediAI Hub Health System • Excellence by Design.
         </p>
       </div>
     </footer>

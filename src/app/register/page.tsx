@@ -83,7 +83,7 @@ export default function RegisterPage() {
               <span className="text-primary not-italic underline decoration-4 decoration-primary/20">Enrollment.</span>
             </h1>
             <p className="text-gray-500 text-lg font-medium leading-relaxed max-w-sm">
-              Creating a secure, decentralized medical identity within the Pearl Thoughts network.
+              Creating a secure, decentralized medical identity within the MediAI Hub network.
             </p>
           </div>
 
@@ -225,7 +225,7 @@ export default function RegisterPage() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="asha.rao@identity.pearl.ai"
+                          placeholder="asha.rao@identity.mediai.hub"
                           {...register('email')}
                           className="rounded-2xl border-2 py-4 px-6 font-bold tracking-tight text-gray-950 bg-gray-50 border-gray-50 focus:bg-white focus:border-primary transition-all shadow-sm"
                         />
@@ -305,7 +305,7 @@ export default function RegisterPage() {
                   </div>
                   <div>
                     <p className="font-black tracking-tight text-sm uppercase italic mb-2 text-white">Privacy</p>
-                    <p className="text-gray-400 text-xs font-medium leading-relaxed">All PII is encrypted at the collection point. Pearl Thoughts zero-knowledge infra ensures absolute privacy.</p>
+                    <p className="text-gray-400 text-xs font-medium leading-relaxed">All PII is encrypted at the collection point. MediAI Hub zero-knowledge infra ensures absolute privacy.</p>
                   </div>
                 </div>
               </div>

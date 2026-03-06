@@ -39,7 +39,7 @@ export default function Navbar() {
 
         <div className="flex flex-col -space-y-1">
           <span className="text-xl font-black tracking-tight text-slate-900 flex items-center gap-1.5">
-            Pearl <span className="text-primary italic">Thoughts</span>
+            MediAI <span className="text-primary italic">Hub</span>
           </span>
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Clinical Intelligence</span>

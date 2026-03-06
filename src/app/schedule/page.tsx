@@ -15,7 +15,8 @@ import {
   CheckCircle2,
   AlertCircle,
   Stethoscope,
-  HeartPulse
+  HeartPulse,
+  ChevronRight
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Input from '../../components/ui/Input';
@@ -87,17 +88,15 @@ export default function SchedulePage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div className="lg:col-span-8 space-y-6">
           {successMessage && (
-            <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-500">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-              <p className="text-emerald-800 font-bold text-sm tracking-tight">{successMessage}</p>
-            </div>
+            <Alert type="success" className="animate-in fade-in slide-in-from-top-4 duration-500">
+              {successMessage}
+            </Alert>
           )}
 
           {errorMessage && (
-            <div className="bg-rose-50 border border-rose-100 p-4 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-500">
-              <AlertCircle className="w-5 h-5 text-rose-500" />
-              <p className="text-rose-800 font-bold text-sm tracking-tight">{errorMessage}</p>
-            </div>
+            <Alert type="error" className="animate-in fade-in slide-in-from-top-4 duration-500">
+              {errorMessage}
+            </Alert>
           )}
 
           <Card className="p-8 md:p-10 border-slate-200 shadow-2xl shadow-slate-200/50 bg-white/80 backdrop-blur-md relative overflow-hidden group">
@@ -114,8 +113,8 @@ export default function SchedulePage() {
                     <Select
                       {...register('patientId')}
                       className={`h-14 pl-4 rounded-2xl border-2 transition-all duration-300 ${errors.patientId
-                          ? 'border-rose-200 bg-rose-50/30'
-                          : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
+                        ? 'border-rose-200 bg-rose-50/30'
+                        : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
                         }`}
                       disabled={isLoadingPatients}
                     >
@@ -138,8 +137,8 @@ export default function SchedulePage() {
                   <Select
                     {...register('providerId')}
                     className={`h-14 pl-4 rounded-2xl border-2 transition-all duration-300 ${errors.providerId
-                        ? 'border-rose-200 bg-rose-50/30'
-                        : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10'
+                      ? 'border-rose-200 bg-rose-50/30'
+                      : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10'
                       }`}
                     disabled={isLoadingProviders}
                   >
@@ -162,8 +161,8 @@ export default function SchedulePage() {
                     type="date"
                     {...register('date')}
                     className={`h-14 rounded-2xl border-2 transition-all duration-300 ${errors.date
-                        ? 'border-rose-200 bg-rose-50/30'
-                        : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
+                      ? 'border-rose-200 bg-rose-50/30'
+                      : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
                       }`}
                   />
                   {errors.date && <p className="text-[10px] font-bold text-rose-500 uppercase tracking-tight pl-1">{errors.date.message}</p>}
@@ -178,8 +177,8 @@ export default function SchedulePage() {
                     type="time"
                     {...register('time')}
                     className={`h-14 rounded-2xl border-2 transition-all duration-300 ${errors.time
-                        ? 'border-rose-200 bg-rose-50/30'
-                        : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
+                      ? 'border-rose-200 bg-rose-50/30'
+                      : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/30 focus:border-primary focus:ring-4 focus:ring-primary/10'
                       }`}
                   />
                   {errors.time && <p className="text-[10px] font-bold text-rose-500 uppercase tracking-tight pl-1">{errors.time.message}</p>}
@@ -194,8 +193,8 @@ export default function SchedulePage() {
                     {...register('reason')}
                     placeholder="Enter clinical justification for visit..."
                     className={`h-14 rounded-2xl border-2 transition-all duration-300 ${errors.reason
-                        ? 'border-rose-200 bg-rose-50/30'
-                        : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-slate-300 focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10'
+                      ? 'border-rose-200 bg-rose-50/30'
+                      : 'border-slate-100 bg-slate-50/50 hover:bg-white hover:border-slate-300 focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10'
                       }`}
                   />
                   {errors.reason && <p className="text-[10px] font-bold text-rose-500 uppercase tracking-tight pl-1">{errors.reason.message}</p>}

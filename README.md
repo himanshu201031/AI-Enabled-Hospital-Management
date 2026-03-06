@@ -1,28 +1,35 @@
-# AI-Enabled Hospital Management
+# MediAI Hub • Tactical Clinical Intelligence
 
-This repository contains a Next.js/TypeScript frontend for an AI-enabled hospital management system.
+MediAI Hub is a high-fidelity, AI-enabled hospital management ecosystem designed to standardize clinical excellence. By merging neural triage with automated patient registration, it eliminates clinician burnout and streamlines mission-critical workflows.
 
-## Setup
+## Tactical Architecture
 
-1. Install dependencies:
+- **Neural Triage Engine**: Advanced AI assessment for patient prioritization.
+- **Biometric Registration**: Secure, decentralized patient identity management.
+- **Temporal Allocation Protocol**: Smart scheduling synchronized with clinical buffers.
+- **Command Dashboard**: Real-time operational oversight for clinical teams.
+
+## Technical Core
+
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS (Tactical Design System).
+- **State Management**: React Query (Neural Link Synchronization).
+- **Design System**: High-fidelity, premium interface with glassmorphism and micro-animations.
+- **Data Protocols**: Standardized JSON schemas for clinical interoperability.
+
+## Deployment Strategy
+
+1. **Install Dependencies**:
    ```bash
    npm install
-   # or yarn
    ```
 
-2. Start development server:
+2. **Initialize Command Center**:
    ```bash
    npm run dev
    ```
 
-3. The app runs at [http://localhost:3000](http://localhost:3000).
+3. **Access Terminal**:
+   [http://localhost:3000](http://localhost:3000)
 
-## Features
-
-- Dashboard layout with Navbar, Sidebar, and Footer
-- Basic pages: Home, Register Patient, Schedule Appointment, AI Triage, Clinician Dashboard
-- Tailwind CSS styling
-- React Query for data fetching
-- Mock API routes under `/src/app/api`
-
-The design follows the UI/UX architecture defined in `Design.md`.
+---
+© 2024 MediAI Hub Health System • Excellence by Design.
